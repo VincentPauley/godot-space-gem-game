@@ -19,6 +19,12 @@ func _build_skins() -> void:
 		skins.append(atlas)
 
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("left"):
+		position.x -= 3
+	if Input.is_action_pressed("right"):
+		position.x += 3
+
 
 #const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
