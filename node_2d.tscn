@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://djacfmt0k1d6j"]
+
+[ext_resource type="Script" uid="uid://c6ukkwh4v085g" path="res://player.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=1313574161]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1752852742]
+position = Vector2(241, 150)
+script = ExtResource("1_wtcfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1768492425]
+unique_name_in_owner = true
