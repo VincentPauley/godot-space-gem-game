@@ -9,7 +9,11 @@ var skins: Array[AtlasTexture] = []
 
 func _ready() -> void:
 	_build_skins()
-	sprite.texture = skins[2]
+	sprite.texture = skins[0]
+	
+	var window_size: Vector2i = get_window().size
+	
+	print("Window: ", window_size.x)
 	
 func _build_skins() -> void:
 	for i in range(3):
@@ -21,9 +25,9 @@ func _build_skins() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left"):
-		position.x -= 3
+		position.x -= 8
 	if Input.is_action_pressed("right"):
-		position.x += 3
+		position.x += 8
 
 
 #const SPEED = 300.0
