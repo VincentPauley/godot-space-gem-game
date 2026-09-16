@@ -3,17 +3,16 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = %Sprite2D
 
 const SHEET = preload("res://assets/3-ships-for-kids.png")
-const FRAME_SIZE = Vector2(100, 110)
+const FRAME_SIZE = Vector2(100, 110) # < hard-coded ref to how big an individual sprite is
 
 var skins: Array[AtlasTexture] = []
+var window_width: int = 0
 
 func _ready() -> void:
 	_build_skins()
 	sprite.texture = skins[0]
 	
-	var window_size: Vector2i = get_window().size
-	
-	print("Window: ", window_size.x)
+	window_width = get_window().size.x
 	
 func _build_skins() -> void:
 	for i in range(3):
@@ -28,6 +27,10 @@ func _physics_process(delta: float) -> void:
 		position.x -= 8
 	if Input.is_action_pressed("right"):
 		position.x += 8
+	
+	# keep player within x boundaries
+	var player_half_width: float = FRAME_SIZE.x / 2.0
+	position.x = clamp(position.x, player_half_width, window_width - player_half_width)
 
 
 #const SPEED = 300.0
