@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cnwcnw1ha78c" path="res://level_1.gd" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkdjgs62asjw3" path="res://player.tscn" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://dbhdgrg3wqwj3" path="res://mushroom.tscn" id="3_epypp"]
 
 [node name="Node2D" type="Node2D" unique_id=1313574161]
 script = ExtResource("1_0e48y")
 player_scene = ExtResource("2_epypp")
+
+[node name="Mushroom" parent="." unique_id=1957090333 instance=ExtResource("3_epypp")]

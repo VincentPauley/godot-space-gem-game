@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dbhdgrg3wqwj3"]
+
+[ext_resource type="Script" uid="uid://6vc5tvip2p05" path="res://mushroom.gd" id="1_gvsd5"]
+
+[node name="Mushroom" type="Area2D" unique_id=1957090333]
+script = ExtResource("1_gvsd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727011702]
