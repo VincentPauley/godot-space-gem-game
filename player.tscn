@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dkdjgs62asjw3"]
 
 [ext_resource type="Script" uid="uid://c6ukkwh4v085g" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://bklt83lp5abqm" path="res://laser_shot.tscn" id="2_onrkg"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=81044964]
 script = ExtResource("1_4flbx")
+laser_shot_scene = ExtResource("2_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1126211415]
 unique_name_in_owner = true

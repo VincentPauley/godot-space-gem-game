@@ -1,11 +1,33 @@
-[gd_scene format=3 uid="uid://djacfmt0k1d6j"]
+[gd_scene format=4 uid="uid://djacfmt0k1d6j"]
 
 [ext_resource type="Script" uid="uid://cnwcnw1ha78c" path="res://level_1.gd" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://dkdjgs62asjw3" path="res://player.tscn" id="2_epypp"]
 [ext_resource type="PackedScene" uid="uid://dbhdgrg3wqwj3" path="res://mushroom.tscn" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://dhpeu784kqey7" path="res://assets/40-px-tile.png" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://bklt83lp5abqm" path="res://laser_shot.tscn" id="5_q6r6c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
+texture = ExtResource("4_0hol4")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ljuc"]
+tile_size = Vector2i(40, 40)
+sources/0 = SubResource("TileSetAtlasSource_q6r6c")
 
 [node name="Node2D" type="Node2D" unique_id=1313574161]
 script = ExtResource("1_0e48y")
 player_scene = ExtResource("2_epypp")
+mushroom_scene = ExtResource("3_epypp")
 
 [node name="Mushroom" parent="." unique_id=1957090333 instance=ExtResource("3_epypp")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1056848200]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAgAAAAAAAAAAAAIAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7ljuc")
+
+[node name="LaserShot" parent="." unique_id=121715169 instance=ExtResource("5_q6r6c")]

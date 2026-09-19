@@ -11,7 +11,7 @@ var frames: Array[AtlasTexture] = []
 func _ready() -> void:
 	# setup frames
 	for i in range(6):
-		print(i)
+		#print(i)
 		var atlas = AtlasTexture.new()
 		atlas.atlas = SHEET
 		
@@ -20,13 +20,12 @@ func _ready() -> void:
 		if i > 2:
 			y_pos = FRAME_SIZE.y
 		
-		atlas.region = Rect2(i * FRAME_SIZE.x, y_pos,  FRAME_SIZE.x, FRAME_SIZE.y)
+		var x_pos = (i % 3) * FRAME_SIZE.x
+		
+		atlas.region = Rect2(x_pos, y_pos,  FRAME_SIZE.x, FRAME_SIZE.y)
 		frames.append(atlas)
 		
-	sprite.texture = frames[4]
-	
-	position.x = 300
-	position.y = 40
+	sprite.texture = frames[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

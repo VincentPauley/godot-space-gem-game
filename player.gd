@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = %Sprite2D
 
+@export var laser_shot_scene: PackedScene
+
 const SHEET = preload("res://assets/3-ships-for-kids.png")
 const FRAME_SIZE = Vector2(100, 110) # < hard-coded ref to how big an individual sprite is
 
@@ -18,6 +20,8 @@ func _ready() -> void:
 	
 	window_width = get_window().size.x
 	
+	
+	
 func _build_skins() -> void:
 	for i in range(3):
 		var atlas = AtlasTexture.new()
@@ -29,7 +33,14 @@ func _build_skins() -> void:
 func _physics_process(delta: float) -> void:
 	_apply_movement(delta)
 	move_and_slide()
+	_check_for_fire()
 	_clamp_to_window()
+	
+func _check_for_fire() -> void:
+	if Input.is_action_just_pressed("fire"):
+		var shot = laser_shot_scene.instantiate()
+		add_child(shot)
+
 
 
 func _get_input_direction() -> float:
