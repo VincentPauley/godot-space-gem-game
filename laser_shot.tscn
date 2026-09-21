@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bklt83lp5abqm"]
 
 [ext_resource type="Script" uid="uid://dj4txmeljkn1o" path="res://laser_shot.gd" id="1_ibdbc"]
-[ext_resource type="Texture2D" uid="uid://cqrgx3yr5uawo" path="res://assets/laser-shot.png" id="2_2osns"]
+[ext_resource type="Texture2D" uid="uid://c04b7exluw1kx" path="res://assets/blue-laser-beam.png" id="2_ibdbc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhbp4"]
 size = Vector2(10, 10)
@@ -10,8 +10,8 @@ size = Vector2(10, 10)
 script = ExtResource("1_ibdbc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821673813]
-position = Vector2(0, 20)
-texture = ExtResource("2_2osns")
+position = Vector2(0, 14)
+texture = ExtResource("2_ibdbc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605584531]
 position = Vector2(0, 5)

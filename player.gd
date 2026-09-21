@@ -1,7 +1,8 @@
+@tool
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = %Sprite2D
-
+@onready var shooter_location: Marker2D = %ShooterLocation
 @export var laser_shot_scene: PackedScene
 
 const SHEET = preload("res://assets/3-ships-for-kids.png")
@@ -31,6 +32,8 @@ func _build_skins() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	_apply_movement(delta)
 	move_and_slide()
 	_check_for_fire()
@@ -39,7 +42,9 @@ func _physics_process(delta: float) -> void:
 func _check_for_fire() -> void:
 	if Input.is_action_just_pressed("fire"):
 		var shot = laser_shot_scene.instantiate()
-		add_child(shot)
+		# shot is a child of the level not the player
+		get_parent().add_child(shot)
+		shot.global_position = shooter_location.global_position
 
 
 
