@@ -16,13 +16,13 @@ func deactivate() -> void:
 	is_active = false
 	hide()
 	set_process(false)
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.disabled = true
 
 func spawn() -> void:
 	is_active = true
 	show()
 	set_process(true)
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

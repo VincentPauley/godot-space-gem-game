@@ -5,7 +5,7 @@ class_name ProjectilePool
 
 @export var projectile_scene: PackedScene
 
-const POOL_SIZE = 10
+const POOL_SIZE = 20
 
 var pool: Array[LaserShot] = []
 
