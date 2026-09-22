@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdjgs62asjw3" path="res://player.tscn" id="2_epypp"]
 [ext_resource type="PackedScene" uid="uid://dbhdgrg3wqwj3" path="res://mushroom.tscn" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://dhpeu784kqey7" path="res://assets/40-px-tile.png" id="4_0hol4"]
-[ext_resource type="PackedScene" uid="uid://bklt83lp5abqm" path="res://laser_shot.tscn" id="5_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://t88rtsvvfac3" path="res://projectile_pool.tscn" id="5_q6r6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
 texture = ExtResource("4_0hol4")
@@ -30,4 +30,4 @@ unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAgAAAAAAAAAAAAIAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_7ljuc")
 
-[node name="LaserShot" parent="." unique_id=121715169 instance=ExtResource("5_q6r6c")]
+[node name="ProjectilePool" parent="." unique_id=893595731 instance=ExtResource("5_q6r6c")]
