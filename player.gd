@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var shooter_location: Marker2D = %ShooterLocation
-@export var laser_shot_scene: PackedScene
+@onready var projectile_pool: ProjectilePool = get_parent().get_node("ProjectilePool")
 
 const SHEET = preload("res://assets/3-ships-for-kids.png")
 const FRAME_SIZE = Vector2(100, 110) # < hard-coded ref to how big an individual sprite is
@@ -36,15 +36,16 @@ func _physics_process(delta: float) -> void:
 		return
 	_apply_movement(delta)
 	move_and_slide()
-	_check_for_fire()
-	_clamp_to_window()
-	
-func _check_for_fire() -> void:
 	if Input.is_action_just_pressed("fire"):
-		var shot = laser_shot_scene.instantiate()
-		# shot is a child of the level not the player
-		get_parent().add_child(shot)
-		shot.global_position = shooter_location.global_position
+		_handle_fire()
+	_clamp_to_window()
+
+func _handle_fire() -> void:
+	var projectile = projectile_pool.get_projectile()
+	if projectile == null:
+		return
+	projectile.global_position = shooter_location.global_position
+	projectile.spawn()
 
 
 

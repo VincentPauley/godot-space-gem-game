@@ -16,3 +16,8 @@ texture = ExtResource("2_ibdbc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605584531]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_lhbp4")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1743886680]
+rect = Rect2(-5, 0, 10, 28)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
