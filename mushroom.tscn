@@ -1,17 +1,83 @@
 [gd_scene format=3 uid="uid://dbhdgrg3wqwj3"]
 
 [ext_resource type="Script" uid="uid://6vc5tvip2p05" path="res://mushroom.gd" id="1_gvsd5"]
-[ext_resource type="Texture2D" uid="uid://ceq885sv4jg5n" path="res://assets/neon-mushroom.png" id="2_ke5i0"]
+[ext_resource type="Texture2D" uid="uid://b37u7jcywilct" path="res://assets/green-gem.png" id="3_pl5ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhbp4"]
-size = Vector2(35, 30)
+size = Vector2(28, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg55k"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gvq0"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rjv2"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxf4e"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jokqs"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6byal"]
+atlas = ExtResource("3_pl5ep")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ljuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg55k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gvq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rjv2")
+}],
+"loop": 1,
+"name": &"end_phase",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxf4e")
+}],
+"loop": 1,
+"name": &"phase_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jokqs")
+}],
+"loop": 1,
+"name": &"phase_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6byal")
+}],
+"loop": 1,
+"name": &"phase_3",
+"speed": 5.0
+}]
 
 [node name="Mushroom" type="Area2D" unique_id=1957090333]
 script = ExtResource("1_gvsd5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1727011702]
-texture = ExtResource("2_ke5i0")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1722021643]
-position = Vector2(0.5, -5)
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_lhbp4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2048265054]
+sprite_frames = SubResource("SpriteFrames_7ljuc")
+animation = &"end_phase"
