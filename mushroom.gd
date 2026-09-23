@@ -11,6 +11,7 @@ const BOB_HEIGHT_MIN = 1.0
 const BOB_HEIGHT_MAX = 3.0
 const BOB_DURATION_MIN = 0.8
 const BOB_DURATION_MAX = 1.2
+const ROTATION_DEGREES = 25.0
 
 var frames: Array[AtlasTexture] = []
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 	_update_animation()
 	
 	if not Engine.is_editor_hint():
+		sprite.rotation = deg_to_rad(randf_range(-ROTATION_DEGREES, ROTATION_DEGREES))
 		_start_bob_tween()
 
 
