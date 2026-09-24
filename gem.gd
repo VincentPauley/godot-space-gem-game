@@ -7,6 +7,7 @@ const BOB_HEIGHT_MIN = 1.0
 const BOB_HEIGHT_MAX = 3.0
 const BOB_DURATION_MIN = 0.8
 const BOB_DURATION_MAX = 1.2
+const ROTATION_DEGREES = 25.0
 
 const gem_options = ['green', 'pink']
 var option = 'green' # < defaulting to green but there is likely a better way
@@ -17,9 +18,12 @@ var current_health: int = 3
 func _ready() -> void:
 	_determine_gem_type()
 	_determine_animation()
-	_start_bob_tween()
 	area_entered.connect(_on_area_entered)
 	sprite.animation_finished.connect(_on_animation_finished)
+	
+	if not Engine.is_editor_hint():
+		sprite.rotation = deg_to_rad(randf_range(-ROTATION_DEGREES, ROTATION_DEGREES))
+		_start_bob_tween()
 
 func _determine_animation() -> void:
 	var animation_name = ''

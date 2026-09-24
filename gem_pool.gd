@@ -22,10 +22,7 @@ func spawn_gems() -> void:
 		var gem = gem_scene.instantiate()
 		gem.position = gem_tile_layout.map_to_local(coord)
 		gem_tile_layout.add_child(gem)
-
-	
-		# remove tile in filler in future
-		#tile_map_layer.erase_cell(coord)
+		gem_tile_layout.erase_cell(coord)
 
 
 

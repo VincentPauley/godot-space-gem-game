@@ -1,8 +1,6 @@
 extends Node2D
 
 @export var player_scene: PackedScene
-@export var mushroom_scene: PackedScene
-
 
 @onready var tile_map_layer = %TileMapLayer
 
@@ -13,7 +11,6 @@ var grid_coords: Array[Vector2i] = []
 func _ready() -> void:
 	_read_tile_grid()
 	_spawn_player_to_center()
-	#_spawn_mushrooms()
 
 
 func _read_tile_grid() -> void:
@@ -33,14 +30,6 @@ func _spawn_player_to_center() -> void:
 	
 	add_child(player)
 
-
-func _spawn_mushrooms() -> void:
-	for coord in grid_coords:
-		tile_map_layer.erase_cell(coord)
-		
-		var mushroom = mushroom_scene.instantiate()
-		mushroom.position = tile_map_layer.map_to_local(coord)
-		tile_map_layer.add_child(mushroom)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
