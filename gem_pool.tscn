@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://trqmq0tig8q6"]
+
+[ext_resource type="Script" uid="uid://dlehxvp1s166p" path="res://gem_pool.gd" id="1_phxe4"]
+
+[node name="GemPool" type="Node2D" unique_id=1148071500]
+script = ExtResource("1_phxe4")

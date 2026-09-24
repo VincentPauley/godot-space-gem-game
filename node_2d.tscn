@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dbhdgrg3wqwj3" path="res://mushroom.tscn" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://dhpeu784kqey7" path="res://assets/40-px-tile.png" id="4_0hol4"]
 [ext_resource type="PackedScene" uid="uid://t88rtsvvfac3" path="res://projectile_pool.tscn" id="5_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://bydh44hvdjjnb" path="res://gem.tscn" id="6_kdubu"]
+[ext_resource type="PackedScene" uid="uid://trqmq0tig8q6" path="res://gem_pool.tscn" id="7_d21ai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
 texture = ExtResource("4_0hol4")
@@ -29,3 +31,9 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAAEAAAAAAAA
 tile_set = SubResource("TileSet_7ljuc")
 
 [node name="ProjectilePool" parent="." unique_id=893595731 instance=ExtResource("5_q6r6c")]
+
+[node name="Gem" parent="." unique_id=387901129 instance=ExtResource("6_kdubu")]
+position = Vector2(45, 73)
+
+[node name="GemPool" parent="." unique_id=1148071500 instance=ExtResource("7_d21ai")]
+gem_scene = ExtResource("6_kdubu")
