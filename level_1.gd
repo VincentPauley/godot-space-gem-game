@@ -13,7 +13,7 @@ var grid_coords: Array[Vector2i] = []
 func _ready() -> void:
 	_read_tile_grid()
 	_spawn_player_to_center()
-	_spawn_mushrooms()
+	#_spawn_mushrooms()
 
 
 func _read_tile_grid() -> void:

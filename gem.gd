@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = %CollisionShape2D
 
 const BOB_HEIGHT_MIN = 1.0
 const BOB_HEIGHT_MAX = 3.0
@@ -10,17 +11,40 @@ const BOB_DURATION_MAX = 1.2
 const gem_options = ['green', 'pink']
 var option = 'green' # < defaulting to green but there is likely a better way
 
+var current_health: int = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_determine_gem_type()
 	_determine_animation()
 	_start_bob_tween()
+	area_entered.connect(_on_area_entered)
+	sprite.animation_finished.connect(_on_animation_finished)
 
 func _determine_animation() -> void:
-	if option == 'green':
-		sprite.play('green_phase_1')
-	if option == 'pink':
-		sprite.play('pink_phase_1')
+	var animation_name = ''
+	
+	if option == 'green' and current_health == 3:
+		animation_name = 'green_phase_1'
+	if option == 'green' and current_health == 2:
+		animation_name = 'green_phase_2'
+	if option == 'green' and current_health == 1:
+		animation_name = 'green_phase_3'
+	if option == 'green' and current_health <= 0:
+		animation_name = 'green_end_phase'
+	if option == 'pink' and current_health == 3:
+		animation_name = 'pink_phase_1'
+	if option == 'pink' and current_health == 2:
+		animation_name = 'pink_phase_2'
+	if option == 'pink' and current_health == 1:
+		animation_name = 'pink_phase_3'
+	if option == 'pink' and current_health <= 0:
+		animation_name = 'pink_end_phase'
+		
+	sprite.play(animation_name)
+	if animation_name == "pink_end_phase" or animation_name == "green_end_phase":
+		sprite.sprite_frames.set_animation_loop(animation_name, false)
+		collision_shape.queue_free()
 	
 func _determine_gem_type() -> void:
 	option = gem_options[randi() % 2]
@@ -35,6 +59,18 @@ func _start_bob_tween() -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "position:y", start_y - bob_height, bob_duration)
 	tween.tween_property(self, "position:y", start_y + bob_height, bob_duration)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is LaserShot:
+		area.deactivate()
+		current_health -= 1
+		_determine_animation()
+
+# NOTE: this is separate from collision removal because we want lasers to pas
+# through while explosion is taking place
+func _on_animation_finished() -> void:
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

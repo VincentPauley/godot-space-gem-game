@@ -66,7 +66,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"green_end_phase",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,7 +104,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"pink_end_phase",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,10 +131,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhbp4"]
+size = Vector2(29, 37)
+
 [node name="Gem" type="Area2D" unique_id=387901129]
 script = ExtResource("1_edvqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306722907]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_lhbp4")
-animation = &"green_phase_1"
+animation = &"green_end_phase"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138904571]
+unique_name_in_owner = true
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_lhbp4")
