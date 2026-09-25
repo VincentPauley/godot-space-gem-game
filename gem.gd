@@ -8,6 +8,7 @@ const BOB_HEIGHT_MAX = 3.0
 const BOB_DURATION_MIN = 0.8
 const BOB_DURATION_MAX = 1.2
 const ROTATION_DEGREES = 25.0
+var gem_coord: Vector2i
 
 const gem_options = ['green', 'pink']
 var option = 'green' # < defaulting to green but there is likely a better way
@@ -74,7 +75,8 @@ func _on_area_entered(area: Area2D) -> void:
 # NOTE: this is separate from collision removal because we want lasers to pas
 # through while explosion is taking place
 func _on_animation_finished() -> void:
-	queue_free()
+	hide()
+	get_parent().register_gem_destroyed(gem_coord)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
