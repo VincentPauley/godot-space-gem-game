@@ -14,6 +14,7 @@ const gem_options = ['green', 'pink']
 var option = 'green' # < defaulting to green but there is likely a better way
 
 var current_health: int = 3
+var bobbing_enabled: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +25,11 @@ func _ready() -> void:
 	
 	if not Engine.is_editor_hint():
 		sprite.rotation = deg_to_rad(randf_range(-ROTATION_DEGREES, ROTATION_DEGREES))
-		_start_bob_tween()
+		if bobbing_enabled:
+			_start_bob_tween()
+
+func begin_bobbing() -> void:
+	_start_bob_tween()
 
 func _determine_animation() -> void:
 	var animation_name = ''
