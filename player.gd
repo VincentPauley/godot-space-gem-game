@@ -11,15 +11,20 @@ const FRAME_SIZE = Vector2(100, 110) # < hard-coded ref to how big an individual
 const SPEED = 500.0
 const ACCELERATION = 3000.0
 const DECELERATION = 2500.0
+const BOB_AMPLITUDE = 3.0
+const BOB_FREQUENCY = 1.0
 
 var skins: Array[AtlasTexture] = []
 var window_width: int = 0
+var bob_time: float = 0.0
+var base_y: float
 
 func _ready() -> void:
 	_build_skins()
 	sprite.texture = skins[0]
 	
 	window_width = get_window().size.x
+	base_y = position.y
 	
 	
 	
@@ -34,6 +39,8 @@ func _build_skins() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	bob_time += delta
+	position.y = base_y + sin(bob_time * TAU * BOB_FREQUENCY) * BOB_AMPLITUDE
 	_apply_movement(delta)
 	move_and_slide()
 	if Input.is_action_just_pressed("fire"):
