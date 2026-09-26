@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bc0sp7v8jr5iy"]
+
+[ext_resource type="Script" uid="uid://csb8f8dyn330p" path="res://root_scenes/main_menu.gd" id="1_vja65"]
+[ext_resource type="Texture2D" uid="uid://cjkqnvka8pva0" path="res://assets/menu/menu-background-full-static.png" id="2_menu_background"]
+
+[node name="MainMenu" type="Node2D" unique_id=2132896024]
+script = ExtResource("1_vja65")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=391808395]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=1490313867]
+offset_right = 600.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_menu_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=783979351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContent" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/CenterContainer/MenuContent" unique_id=588733254]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Space Gem Defender"
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="CanvasLayer/CenterContainer/MenuContent" unique_id=1869219378]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "A Sour Mug Game"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="CanvasLayer/CenterContainer/MenuContent" unique_id=735009473]
+custom_minimum_size = Vector2(140, 48)
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/MenuContent/StartButton" to="." method="_on_start_button_pressed"]
