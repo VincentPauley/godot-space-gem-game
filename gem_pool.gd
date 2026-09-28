@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var gem_scene: PackedScene
-
+  
 @onready var gem_tile_layout: TileMapLayer = $"../TileMapLayer"
 
 # Vertical distance above the final position where each gem starts its entrance.

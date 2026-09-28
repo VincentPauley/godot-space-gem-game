@@ -9,8 +9,8 @@ const SHEET = preload("res://assets/3-ships-for-kids.png")
 const FRAME_SIZE = Vector2(100, 110) # < hard-coded ref to how big an individual sprite is
 
 const SPEED = 500.0
-const ACCELERATION = 3000.0
-const DECELERATION = 2500.0
+const ACCELERATION = 1200.0
+const DECELERATION = 900.0
 const BOB_AMPLITUDE = 3.0
 const BOB_FREQUENCY = 1.0
 

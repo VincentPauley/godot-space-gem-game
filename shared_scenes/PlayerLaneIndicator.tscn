@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://db4402u48en34"]
+
+[ext_resource type="Texture2D" uid="uid://6goiajebue1t" path="res://assets/player-lane-marker.png" id="1_4ifpn"]
+
+[node name="PlayerLaneIndicator" type="Area2D" unique_id=1252756464]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=990317230]
+texture = ExtResource("1_4ifpn")
