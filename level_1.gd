@@ -24,11 +24,8 @@ func _ready() -> void:
 func _read_tile_grid() -> void:
 	cell_size = tile_map_layer.tile_set.tile_size
 	grid_coords = tile_map_layer.get_used_cells()
-	
-	
-	
-func _place_lane_indicators() -> void:
 
+func _place_lane_indicators() -> void:
 	var column_width = cell_size.x
 	
 	var column_count = get_window().size.x / column_width
@@ -38,10 +35,9 @@ func _place_lane_indicators() -> void:
 		var column_center = column * column_width - (column_width /2)
 
 		var lane_marker = lane_marker_scene.instantiate()
-	
+		lane_marker.add_to_group("player_lane_markers")
 		lane_marker.position = Vector2i(column_center, PLAYER_Y_BASE)
 		add_child(lane_marker)
-	
 
 
 func _spawn_player_to_center() -> void:
