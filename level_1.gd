@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player_scene: PackedScene
 @export var lane_marker_scene: PackedScene
+@export var centipede_scene: PackedScene
 
 @onready var tile_map_layer = %TileMapLayer
 
@@ -13,9 +14,13 @@ var PLAYER_Y_BASE = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var window_size: Vector2i = get_window().size
-	#var center_point = window_size.x / 2
-	
+
 	PLAYER_Y_BASE = window_size.y - 100
+	
+	var centipede = centipede_scene.instantiate()
+	centipede.configure(tile_map_layer, $GemPool)
+	add_child(centipede)
+	
 	_read_tile_grid()
 	_spawn_player_to_center()
 	_place_lane_indicators()
@@ -37,6 +42,7 @@ func _place_lane_indicators() -> void:
 		var lane_marker = lane_marker_scene.instantiate()
 		lane_marker.add_to_group("player_lane_markers")
 		lane_marker.position = Vector2i(column_center, PLAYER_Y_BASE)
+		lane_marker.hide()
 		add_child(lane_marker)
 
 

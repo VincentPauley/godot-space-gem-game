@@ -1,5 +1,7 @@
 extends Node2D
 
+signal gems_positioned
+
 @export var gem_scene: PackedScene
   
 @onready var gem_tile_layout: TileMapLayer = $"../TileMapLayer"
@@ -20,6 +22,10 @@ var gem_map: Dictionary = {}
 var gems: Array[Area2D] = []
 var entrance_rows_positioned: int = 0
 var entrance_rows_total: int = 0
+var entrance_complete: bool = false
+
+func is_gem_at(coord: Vector2i) -> bool:
+	return gem_map.get(coord, false)
 
 func register_gem_destroyed(gem_coord: Vector2i) -> void:
 	gem_map[gem_coord] = false
@@ -91,8 +97,8 @@ func _on_row_positioned(row_y: int) -> void:
 		_on_gems_positioned()
 
 func _on_gems_positioned() -> void:
-	for gem in gems:
-		gem.begin_bobbing()
+	entrance_complete = true
+	gems_positioned.emit()
 	print("All gems are positioned")
 
 

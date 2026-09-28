@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjld0ne3s6khm"]
+
+[ext_resource type="Script" uid="uid://icpo0aj2sqs" path="res://shared_scenes/centipede_head.gd" id="1_4nc3o"]
+[ext_resource type="Texture2D" uid="uid://cg4unnb64fy3a" path="res://assets/centipede/centipede-v1.png" id="1_8jy0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhbp4"]
+radius = 18.027756
+
+[node name="CentipedeHead" type="Area2D" unique_id=233098915]
+script = ExtResource("1_4nc3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413202547]
+texture = ExtResource("1_8jy0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049702563]
+shape = SubResource("CircleShape2D_lhbp4")
