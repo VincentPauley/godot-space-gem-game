@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bc0sp7v8jr5iy"]
 
 [ext_resource type="Script" uid="uid://csb8f8dyn330p" path="res://root_scenes/main_menu.gd" id="1_vja65"]
-[ext_resource type="Texture2D" uid="uid://cjkqnvka8pva0" path="res://assets/menu/menu-background-full-static.png" id="2_menu_background"]
+[ext_resource type="PackedScene" uid="uid://dkn0ucdjdik4p" path="res://shared_scenes/TwinkleStar.tscn" id="2_ekqrv"]
+[ext_resource type="Texture2D" uid="uid://dbnigr8faloc2" path="res://assets/menu/menu-background-clouds-static.png" id="2_xgj8b"]
+[ext_resource type="Texture2D" uid="uid://nnci46sqyx4i" path="res://assets/menu/scatterd-stars.png" id="4_xgj8b"]
 
 [node name="MainMenu" type="Node2D" unique_id=2132896024]
 script = ExtResource("1_vja65")
@@ -13,9 +15,32 @@ offset_right = 600.0
 offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_menu_background")
+texture = ExtResource("2_xgj8b")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="TwinkleStar3" parent="CanvasLayer" unique_id=758568305 instance=ExtResource("2_ekqrv")]
+visibility_layer = 524289
+position = Vector2(111, 660)
+animation = &"default"
+
+[node name="starScatter2" type="Sprite2D" parent="CanvasLayer" unique_id=982954347]
+position = Vector2(172, 652)
+texture = ExtResource("4_xgj8b")
+
+[node name="starScatter" type="Sprite2D" parent="CanvasLayer" unique_id=952412143]
+position = Vector2(297, 98)
+texture = ExtResource("4_xgj8b")
+
+[node name="TwinkleStar2" parent="CanvasLayer" unique_id=840697896 instance=ExtResource("2_ekqrv")]
+visibility_layer = 524289
+position = Vector2(431, 170)
+animation = &"default"
+
+[node name="TwinkleStar" parent="CanvasLayer" unique_id=1712305420 instance=ExtResource("2_ekqrv")]
+visibility_layer = 524289
+position = Vector2(342, 101)
+animation = &"default"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=783979351]
 anchors_preset = 15

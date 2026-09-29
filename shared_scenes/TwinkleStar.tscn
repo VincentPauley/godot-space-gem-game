@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dkn0ucdjdik4p"]
+
+[ext_resource type="Texture2D" uid="uid://cbamv5jxuo2e1" path="res://assets/menu/star-twinkle-frames.png" id="1_l2yvl"]
+[ext_resource type="Script" uid="uid://g2dffemdh086" path="res://shared_scenes/twinkle_star.gd" id="2_ck8aw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck8aw"]
+atlas = ExtResource("1_l2yvl")
+region = Rect2(0, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0y5r"]
+atlas = ExtResource("1_l2yvl")
+region = Rect2(85, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al81w"]
+atlas = ExtResource("1_l2yvl")
+region = Rect2(170, 0, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lhbp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck8aw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0y5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al81w")
+}],
+"loop": 1,
+"name": &"twinkle",
+"speed": 16.0
+}]
+
+[node name="TwinkleStar" type="AnimatedSprite2D" unique_id=758568305]
+sprite_frames = SubResource("SpriteFrames_lhbp4")
+animation = &"twinkle"
+script = ExtResource("2_ck8aw")

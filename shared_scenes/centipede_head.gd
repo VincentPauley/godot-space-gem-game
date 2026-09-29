@@ -47,8 +47,10 @@ func _ready() -> void:
 
 
 func _on_gems_positioned() -> void:
+	# prevent duplicate starts and resets
 	if has_started:
 		return
+	# init centipede in top right position and begin it's movment.
 	current_cell = Vector2i(max_cell.x, min_cell.y)
 	global_position = _cell_to_global(current_cell)
 	has_started = true
@@ -96,8 +98,7 @@ func _is_horizontal_cell_blocked(cell: Vector2i) -> bool:
 func _try_descend() -> bool:
 	var cell_below = current_cell + Vector2i.DOWN
 	if (
-		cell_below.y <= max_cell.y
-		and not gem_pool.is_gem_at(cell_below)
+		not gem_pool.is_gem_at(cell_below)
 		and _cell_is_on_screen(cell_below)
 	):
 		await _move_to_cell(cell_below)
