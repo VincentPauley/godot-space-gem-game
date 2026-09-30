@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot-Centipede"
-run/main_scene="uid://bc0sp7v8jr5iy"
+run/main_scene="uid://d1215ehu6q6c5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/image="uid://dbnigr8faloc2"
 config/icon="res://icon.svg"

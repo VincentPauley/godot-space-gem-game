@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d1215ehu6q6c5"]
+
+[ext_resource type="Texture2D" uid="uid://dfcl6xm2p1fgy" path="res://assets/menu/logo-rough-draft.png" id="1_coicw"]
+[ext_resource type="Script" uid="uid://4vfw5t25wxkl" path="res://root_scenes/logo_splash.gd" id="1_nwd7u"]
+
+[node name="LogoSplash" type="Node2D" unique_id=1194850977]
+script = ExtResource("1_nwd7u")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1658173204]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer" unique_id=1874410921]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221922361]
+position = Vector2(300, 414)
+texture = ExtResource("1_coicw")
